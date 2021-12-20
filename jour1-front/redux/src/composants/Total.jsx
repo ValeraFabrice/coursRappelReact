@@ -1,6 +1,14 @@
+import {useSelector} from "react-redux"
+
 const Total = () => {
+
+    const nb = useSelector( state => {
+        console.log(state)
+        return state; 
+    } )
+
     return ( 
-        <span className="badge bg-primary">10</span>
+        <span className="badge bg-primary">{ nb.length }</span>
     )
 }
 

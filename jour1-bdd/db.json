@@ -36,6 +36,11 @@
       "titre": "nouveau ",
       "contenu": "test",
       "id": 7
+    },
+    {
+      "titre": "nouvel article",
+      "contenu": "encore un nouvel article",
+      "id": 8
     }
   ],
   "users": [
