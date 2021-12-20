@@ -1,0 +1,11 @@
+cd jour1-front/
+cd redux
+
+package.json dans le dossier redux 
+"name": "redux",
+"name": "tp-redux",
+
+npm i redux react-redux redux-thunk redux-devtools-extension
+
+// store => timeline 
+// https://github.com/zalmoxisus/redux-devtools-extension

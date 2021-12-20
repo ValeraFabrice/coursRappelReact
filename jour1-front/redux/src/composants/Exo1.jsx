@@ -18,4 +18,4 @@ const Exo1 = () => {
             {/* <p>{state.nom} - {state.age}</p> */}
             <p>{nom} - {age}</p></>)
 }
-export default Exo1; 
+export default Exo1; // 
