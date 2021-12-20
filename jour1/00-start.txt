@@ -107,3 +107,17 @@ npm i json-server => installation locale de json-server
 npx json-server --watch db.json
 
 
+// API => Application Program Interface 
+// ensemble de normes et de logiciels qui vont permettre de faire communiquer 
+
+// logiciel (React + Redux)  <=================> base de données db.json
+// FRONT                                                BACK 
+
+                                json-server
+    Axios       => Protocole HTTP  
+                => Méthode GET / POST / PUT / DELETE
+                => body corps de la requête http 
+
+
+
+

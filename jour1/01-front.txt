@@ -1,0 +1,26 @@
+créer un nouveau projet react 
+
+lancer un nouveau terminal 
+
+mkdir jour1-front
+
+cd jour1-front
+npm init --yes
+npm i create-react-app 
+// créer le dossier node_modules  télécharger create-react-app + dépendance
+npx create-react-app redux // créer le projet react 
+cd redux
+npm start
+
+npm i -g create-react-app 
+create-react-app redux
+
+npm i  create-react-app 
+npx create-react-app redux
+
+npm i -g json-server
+json-server --watch db.json 
+
+npm i json-server
+npx json-server --watch db.json 
+
