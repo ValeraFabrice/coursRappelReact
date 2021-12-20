@@ -94,4 +94,16 @@ NoSQL => utiliser autre langage pour accéder aux informations dans la base de d
     ]
 }
 
+// serveur qui l'on va pouvoir appeler via axios dans projet react 
+// installation globale 
+npm i -g json-server  => ressemble à MongoDB 
+cd jour1-bdd
+json-server --watch db.json => démarrer notre serveur 
+
+// installation locale 
+cd jour1-bdd
+npm init --yes => package.json 
+npm i json-server => installation locale de json-server
+npx json-server --watch db.json
+
 
