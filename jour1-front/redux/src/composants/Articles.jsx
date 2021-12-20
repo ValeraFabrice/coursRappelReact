@@ -1,5 +1,5 @@
 import { useState } from "react"
-import Article from "./Article";
+import Article from "./Article"; 
 
 const Articles = () => {
     const [articles] = useState([
