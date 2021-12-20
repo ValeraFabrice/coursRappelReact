@@ -1,0 +1,17 @@
+créer un nouveau composant 
+
+nom du composant exo1
+
+afficher le html suivant 
+<button className="btn btn-success">action</button>
+<p> Alain - 9 </p>
+ce composant dispose d'une variable locale =>(state)
+{ 
+    id : 12,
+    nom : "Alain"
+    age : 9
+}
+lorsque vous cliquer sur le bouton augmenter l'age dans le state de + 1
+Et mettre à jour  
+<p> Alain - 10 </p>
+<p> Alain - 11 </p>
