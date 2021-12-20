@@ -1,11 +1,14 @@
-import { useState } from "react"
+import { useState , useEffect } from "react"
 import Article from "./Article"; 
-
+import axios from "axios"; // requete http => appeler notre base de données 
 const Articles = () => {
-    const [articles] = useState([
-        {"id" : 1 , "titre" : "Article 1", "contenu" : "lorem ipsum" , "userId" : 1 },
-        {"id" : 2 , "titre" : "Article 2", "contenu" : "lorem ipsum" , "userId" : 1 }
-    ]);
+    let [articles , setArticle] = useState( [] );
+    useEffect(async () => {
+        // requete http vers http://localhost:3000/articles get
+        const { data } = await axios.get("http://localhost:3000/articles")
+        // json-server --watch db.json
+        setArticle(data);
+    } , [] )
     return (
         <>
            { articles.map( (a , index) =>  <Article key={index} data={a} /> )}
