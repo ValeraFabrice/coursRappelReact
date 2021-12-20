@@ -7,6 +7,7 @@ const Articles = () => {
         // requete http vers http://localhost:3000/articles get
         const { data } = await axios.get("http://localhost:3000/articles")
         // json-server --watch db.json
+        // pause rdv 13h33 bon appétit @ toute suite !! 
         setArticle(data);
     } , [] )
     return (
