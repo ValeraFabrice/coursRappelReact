@@ -2,6 +2,7 @@ import Total from "./composants/Total";
 import Articles from "./composants/Articles";
 import Formulaire from "./composants/Formulaire";
 import Bouton from "./composants/Bouton";
+import Exo1 from "./composants/Exo1";
 
 function App() {
   return (
@@ -24,8 +25,11 @@ function App() {
               <Formulaire />
           </div>
         </section>
-        <section className="row">
+        <section className="row ">
+         <div>
           <Bouton />
+          <Exo1/>
+         </div>
         </section>
 
     </div>
