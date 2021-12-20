@@ -8,9 +8,7 @@ const Articles = () => {
     ]);
     return (
         <>
-           {articles.map( (a , index) => {
-               return ( <Article key={index} data={a} />)
-           } )}
+           { articles.map( (a , index) =>  <Article key={index} data={a} /> )}
         </>
     )
 }
