@@ -1,0 +1,35 @@
+créer un dossier jour1-bdd
+créer un fichier db.json 
+
+{
+    "articles" : [
+        {"id" : 1 , "titre" : "Article 1", "contenu" : "lorem ipsum" , "userId" : 1 },
+        {"id" : 2 , "titre" : "Article 2", "contenu" : "lorem ipsum" , "userId" : 1 }
+    ],
+    "users" : [
+        { "id" : 1 , "nom" : "Alain"}
+    ]
+}
+
+dans un terminal 
+
+npm i -g json-server
+cd jour1-bdd
+json-server --watch db.json
+
+npm i bootstrap 
+npm i axios
+
+// redux => outil en plus de react qui permet répond au problème suivant
+// comment partager des données entre composants frère ? 
+// sans avoir à modifier le lieu où est stocké les  données ??? 
+
+// https://formation.webdevpro.net/react
+// login : react
+// mdp : fb
+
+// json-server permet de créer une API => gérer une base de données en format json 
+
+json-server --watch db.json
+
+

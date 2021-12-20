@@ -1,9 +1,52 @@
 {
-    "articles" : [
-        {"id" : 1 , "titre" : "Article 1", "contenu" : "lorem ipsum" , "userId" : 1 },
-        {"id" : 2 , "titre" : "Article 2", "contenu" : "lorem ipsum" , "userId" : 1 }
-    ],
-    "users" : [
-        { "id" : 1 , "nom" : "Alain"}
-    ]
+  "articles": [
+    {
+      "id": 1,
+      "titre": "Article 1",
+      "contenu": "lorem ipsum",
+      "userId": 1
+    },
+    {
+      "id": 2,
+      "titre": "Article 2",
+      "contenu": "lorem ipsum",
+      "userId": 1
+    },
+    {
+      "titre": "modification",
+      "contenu": "de l'article",
+      "id": 3
+    },
+    {
+      "titre": "nouvel article",
+      "contenu": "avec un peu de contenu",
+      "id": 4
+    },
+    {
+      "titre": "comment",
+      "contenu": "allez vous ",
+      "id": 5
+    },
+    {
+      "titre": "azerty",
+      "contenu": "azerty",
+      "id": 6
+    },
+    {
+      "titre": "nouveau ",
+      "contenu": "test",
+      "id": 7
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "nom": "Alain"
+    }
+  ],
+  "categories": [
+    "js",
+    "angular",
+    "react"
+  ]
 }
