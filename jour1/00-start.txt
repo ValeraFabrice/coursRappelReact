@@ -1,0 +1,97 @@
+Malik HARRIZ 
+malik.h@webdevpro.net
+
+=> aider pour votre projet (React / HTML / CSS / JS )
+=> présentation d'un point nouveau 
+=> rappel => point vu la semaine dernière (répétition)
+
+Jean Luc 
+
+Composant 
+
+données stockées dans le composant => state 
+
+let compteur = 10 ;
+
+let produit = {
+    id : 1,
+    nom : "produit 1",
+    prix : 12.5,
+    decription : "lorem ipsum "
+}
+
+=> jsx du composant 
+
+=> parent du composant vers l'enfant via props => 
+
+let panier = [
+    {
+        id : 1,
+        nom : "produit 1",
+        prix : 12.5,
+        decription : "lorem ipsum "
+    }
+]
+
+Total => cousin de composant panier
+
+   -----App -----
+  |             |
+Panier ------- Total
+  |
+  |
+Produits
+
+
+=> Redux lib en + de React => 
+=> state manager => gestionnaire d'état 
+
+=> Store => les composants vont  interroger le 
+
+=> composant => demandes "action" aupres du store 
+
+https://formation.webdevpro.net/react/
+login : react
+mdp : fb 
+
+composant => plus stocker des state 
+         => action 
+         => vrai base de données (ajouter /modifier)
+         => reducer fonction pure (1,2) => 3
+         => store base de données locales (dédiées) votre application
+         => dispatch vers les ou les composants qui le distapcher 
+
+https://redux.js.org/
+
+// https://redux.js.org/tutorials/fundamentals/part-1-overview
+
+// 1ère chose => créer une bdd => NoSQL (MongoDB)
+
+créer le dossier jour1-bdd
+dans ce dossier créer un fichier db.json (jouée le rôle de base de données)
+
+MySQL => utiliser le langage qui s'appelle le SQL pour récupérer tes informations 
+
+SELECT * FROM users
+
+NoSQL => utiliser autre langage pour accéder aux informations dans la base de données 
+
+=> très très simple à mettre en place pour un projet React + redux 
+
+=> NoSQL (qui ressemble à MongoDB)
+
+=> base de données SQL => table / enregistrement 
+
+=> base de données NoSQL => collection / document 
+
+{
+    "articles" : [
+        {"id" : 1 , "titre" : "Article 1", "contenu" : "lorem ipsum" , "userId" : 1 },
+        {"id" : 2 , "titre" : "Article 2", "contenu" : "lorem ipsum" , "userId" : 1 }
+    ],
+    "users" : [
+        { "id" : 1 , "nom" : "Alain"}
+    ]
+}
+
+
