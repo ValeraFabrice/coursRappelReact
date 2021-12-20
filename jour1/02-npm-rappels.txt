@@ -1,0 +1,53 @@
+npm => node package manager 
+
+outil en ligne de commande qui permet de télécharger 
+des librairies dont projet va êter dépendant 
+
+npm init  => package.json 
+
+npm init --yes 
+npm init -y
+
+package.json  => fichier méta information sur ton projet 
+nom projet / dependencies
+
+télécharger librairies dont ton projet est dépendant en LOCAL 
+// dépendance ne sont disponibles QUE sur le projet en cours 
+npm i create-react-app
+npm install create-react-app 
+
+télécharger librairies dont ton projet est dépendant en GLOBAL
+// utiliser cette libraire sur tous les projets 
+npm i -g create-react-app
+npm install --global create-react-app 
+
+désinstaller une dépendance LOCALE
+npm un create-react-app
+npm uninstall create-react-app
+
+
+désinstaller une dépendance LOCALE
+npm un -g create-react-app
+npm uninstall --global create-react-app
+
+// page d'accueil du mode d'emploi de la librairie que tu es en train d'utiliser 
+npm home create-react-app
+
+// npm init --yes
+// npm i <lib>
+// npm i -g <lib>
+// npm un <lib>
+// npm un -g <lib>
+// npm home <lib>
+
+// npm i <lib> => npx <lib>
+// npm i -g <lib>  => <lib> 
+
+// npmjs.com => dépot central de toutes librairies téléchargeable depuis la commande npm 
+
+// npm --help
+// npm i --help
+
+cd jour1-front
+cd redux
+npm i bootstrap // installer en local la librairie twitter bootstrap dans mon projet react 

@@ -8,7 +8,7 @@ cd jour1-front
 npm init --yes
 npm i create-react-app 
 // créer le dossier node_modules  télécharger create-react-app + dépendance
-npx create-react-app redux // créer le projet react 
+npx create-react-app redux // créer le projet react à partir de dossier create-react-app qui est dans le dossier node_modules  
 cd redux
 npm start
 
@@ -24,3 +24,18 @@ json-server --watch db.json
 npm i json-server
 npx json-server --watch db.json 
 
+// informatique => réécrire la roue à chaque fois 
+
+fichier.js 
+
+
+function calcul(a, b){
+
+}
+
+
+utiliser les fonctions autre fichier pour votre projet internet 
+calcul(a, b)
+
+npm => Node Package Manager (node_modules) => gestionnaire de dépendance / gestionnaire de paquet 
+// rdv 10h45 bon café @ toute suite !! 
