@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const a = ["lundi", "mardi", "mercredi"] ;
+
+        for( const jour of a ){
+            console.log(jour);
+        }
+
+        const devise = {
+            nom : "Euro",
+            symbol : "€"
+        }
+
+        for(const key in devise){
+            console.log(key , devise[key])
+        }
+
+        console.log(devise.nom , devise.symbol); 
+
+        const pays = [
+            {
+                capitale : ["Paris"],
+                currencies : {
+                    "EUR" : {
+                        nom : "Euro",
+                        symbol : "€"
+                    }
+                }
+            },
+            {
+                capitale : ["Washington"],
+                currencies : {
+                    "DOL" : {
+                        nom : "Dollars",
+                        symbol : "$"
+                    }
+                }
+            }
+        ]
+        console.log(pays[0].currencies.EUR.symbol);
+        console.log(pays[1].currencies.DOL.symbol);
+
+        pays.forEach( p => {
+            for(let key in p.currencies){
+                console.log(p.currencies[key].symbol , p.currencies[key].nom)
+            }
+        } )
+
+
+    </script>
+</body>
+</html>
