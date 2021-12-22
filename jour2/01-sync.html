@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // programmation synchrone ??? 
+        // le code va s'exécuter dans l'ordre dans lequel vous l'avez écrit 
+
+        const a = 2 ;
+        const b = 10 ;
+        console.log( a + b ) ; 
+
+        // programme asynchrone 
+        // le code va s'exécuter dans un ordre différent de celui dans lequel vous l'avez écrit !!! 
+
+        let c ;  // 1
+        setTimeout( function(){ c = 30 } , 1000  ); // stocker SANS attendre  // 3
+        console.log(c); // 2
+
+        let d ;
+        setTimeout( function(){ d = 30 } , 1000  );
+        if(d != undefined){ // false
+            console.log(d);
+        } 
+
+        // axios.get("http://localhost:3000/articles") // exécuter => réponse 1000s 
+        // setTimeout 
+        // DOM => 
+        // let a ;
+        // document.querySelector("p").addEventListener("click" , function(){
+        //     a = 10
+        // })
+        // console.log(a)
+        
+        // pour pouvoir ATTENDRE que l'instruction qui prend un temps indéfini
+        // et exécuter le console.log 
+
+        // premier solution => callback ( 1995 )
+        // Promise (2000)
+        // await async (ES6 2015)
+
+
+
+    </script>
+</body>
+</html>
