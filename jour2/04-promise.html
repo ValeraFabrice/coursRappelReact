@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // utilisant les Promise 
+
+        function action1(){
+            return new Promise(function( resolve, reject ){
+                console.log("bonjour"); // Promises 
+                setTimeout( 
+                    function(){
+                        console.log("comment allez vous ?") ;
+                        resolve()
+                    },  2000 )
+             })
+        }
+        function action2(){
+            return new Promise( function( resolve, reject){
+                setTimeout( function(){
+                    console.log("merci je vais bien !")
+                    resolve();
+                } , 2000)
+            } )
+        }
+        function action3(){
+            return new Promise(function(resolve, reject){
+                setTimeout( function(){ 
+                    console.log("bonne journée !")
+                }, 2000)
+             })
+        }
+        
+        action1().then( () => action2() )
+                 .then( () => action3() )
+                 
+    </script>
+</body>
+</html>
