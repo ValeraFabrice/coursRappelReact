@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            width: 900px;
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+        input{
+            padding: 5px 8px;
+            width: 50%;
+        }
+        section{
+            display: grid;
+            grid-template-columns: repeat(3, 1fr );
+            gap:20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Rechercher un pays</h1>
+            <input class="search" placeholder="rechercher un pays"> 
+        </header>
+        <hr>
+        <section></section>
+    </div>
+    <script>
+        //  https://restcountries.com/v3.1/all
+        fetch("https://restcountries.com/v3.1/all")
+            .then(response => response.json())
+            .then(pays => document.querySelector("section").innerHTML = genererResultat(pays));
+
+        function genererResultat(pays){
+            return pays.map(p => {
+                return `<article>
+                    <h2>${p.name.official}</h2>
+                    <p>capitale : ${ p.capital ? p.capital : "" }</p>
+                    <img src="${p.flags.png}" alt=""> 
+                    <p><a href="${p.maps.googleMaps}" target="_blank">${p.maps.googleMaps}</a></p> 
+                    
+                </article>`
+            }).join("");
+        }
+
+        document.querySelector("input").addEventListener("input" , async function(e){
+            const reponse = await fetch("https://restcountries.com/v3.1/name/"+e.target.value)
+            const paysRecherche = await reponse.json();
+            document.querySelector("section").innerHTML = genererResultat(paysRecherche); 
+        })
+
+
+    </script>
+</body>
+</html>
