@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let a ;
+        setTimeout( function(){ a = 10 } , 1000 )
+        console.log(a) // undefined 
+
+        let b ;
+        setTimeout( function(){ b = 10 ; console.log(b) } , 1000 )
+         
+        // une autre manière de faire 
+        // callback 
+
+        // créer fonction méthode 1
+        function calcul(){
+            console.log("je suis un calcul")
+        }
+        // créer une fonction méthode 2
+        const division = function(){
+            console.log("je suis une division ")
+        }
+
+        function genererPage( contenu ){
+            contenu();
+        }
+
+        genererPage( function(){ console.log("je suis la fonction contenu")} );
+        // callback !!! 
+
+        // const contenu = function(){ console.log("je suis la fonction contenu")}
+
+
+        /*
+         let a ;
+         setTimeout( function(){ a = 10 } , 1000 )
+         console.log(a) // undefined
+        */
+
+        function fonctionAsync(  callback  ){
+            setTimeout( function(){ c = 120 ; callback() } , 3000 )
+        }
+        let c ;
+        
+        fonctionAsync( function(){  console.log(c) })
+
+        function toto( a , b , c  ){
+            a();
+            b();
+            c();
+        }
+
+        // 1 seul callback à créer => parfait 
+        // plusieurs callback à enchaine => callback hell // Pyramid of Doom 
+        
+
+
+    </script>
+</body>
+</html>
