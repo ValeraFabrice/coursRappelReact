@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // deux requêtes ajax => article userID
+        // le nom de l'auteur de l'article 
+
+        function getArticle(idArticle){
+            return new Promise( function(resolve, reject){
+                const req = new XMLHttpRequest();
+                req.open("GET", "https://jsonplaceholder.typicode.com/posts/"+idArticle);
+                req.send();
+                req.onload = function(){
+                    const idUser = JSON.parse(req.responseText).userId;
+                    resolve(idUser)
+                }
+            } )
+        }
+
+        function getUser(idUser){
+            return new Promise( function(resolve, reject){
+                const req = new XMLHttpRequest();
+                req.open("GET", "https://jsonplaceholder.typicode.com/users/"+idUser);
+                req.send();
+                req.onload = function(){
+                    const user = JSON.parse(req.responseText);
+                    resolve(user)
+                }
+            } )
+        }
+
+        // then()
+        getArticle(45).then( idUser =>  getUser(idUser))
+                      .then( user => console.log(user));
+
+        // await async 
+        async function getRedacteur(){
+            const idUser = await getArticle(45); 
+            const user = await getUser(idUser)
+            console.log(user)
+        }
+
+        getRedacteur(); 
+
+
+    </script>
+</body>
+</html>
