@@ -25,7 +25,7 @@
 
         function getUser(idUser){
             return new Promise( function(resolve, reject){
-                const req = new XMLHttpRequest();
+                const req = new window.XMLHttpRequest();
                 req.open("GET", "https://jsonplaceholder.typicode.com/users/"+idUser);
                 req.send();
                 req.onload = function(){
@@ -47,6 +47,8 @@
         }
 
         getRedacteur(); 
+
+        // JOINTURE base de données noSQL 
 
 
     </script>
