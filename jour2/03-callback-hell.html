@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        // enchainer les callback 
+
+        // afficher dans la console => bonjour
+        // Au bout de 2 secondes => "comment allez vous ";
+        // aubout de 4 secondes => "merci je vais bien "
+        // au bout de 6 secondes => "bonne journée "
+
+        // des textes qui vont s'afficher dans la console avec un timing 
+
+        console.log("bonjour");
+        setTimeout( function(){ 
+            console.log("comment allez vous ?")
+            setTimeout( function(){
+                console.log("merci je vais bien !")
+                    setTimeout( function(){
+                        console.log("bonne journée !") // fin du code !!! 
+                    }, 2000)
+            }, 2000)
+        } , 2000)
+
+        // callback hell => difficile à maintenir le code 
+
+        // Promise 
+
+    </script>
+</body>
+</html>
