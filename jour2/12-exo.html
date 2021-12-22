@@ -41,15 +41,27 @@
 
         function genererResultat(pays){
             return pays.map(p => {
+                let devise = "";
+                for(const currency in p.currencies){
+                    devise += p.currencies[currency].name +"-"+ p.currencies[currency].symbol
+                }
                 return `<article>
                     <h2>${p.name.official}</h2>
                     <p>capitale : ${ p.capital ? p.capital : "" }</p>
                     <img src="${p.flags.png}" alt=""> 
+                    <p>devise : ${devise}</p>
                     <p><a href="${p.maps.googleMaps}" target="_blank">${p.maps.googleMaps}</a></p> 
-                    
                 </article>`
             }).join("");
         }
+
+        // keypress
+        // keyup
+        // keydown
+        // focus => rentre dans le champ avec la souris
+        // blur => sort du champ
+        // change => rentre /modifier / sortie
+        // input 
 
         document.querySelector("input").addEventListener("input" , async function(e){
             const reponse = await fetch("https://restcountries.com/v3.1/name/"+e.target.value)
@@ -57,7 +69,8 @@
             document.querySelector("section").innerHTML = genererResultat(paysRecherche); 
         })
 
-
+        // axios => firefox + nodejs 
+        // rdv 16h15
     </script>
 </body>
 </html>
