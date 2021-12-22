@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // https://jsonplaceholder.typicode.com/
+        // https://jsonplaceholder.typicode.com/posts => json []
+
+        // récupérer les données qui sont disponibles depuis l'adresse suivante : 
+        // https://jsonplaceholder.typicode.com/posts
+
+        // requete ajax 
+        // XMLHttpRequest()
+        // fetch()
+        // axios 
+        // jQuery 
+
+        const requete = new XMLHttpRequest();
+        requete.open("GET" , "https://jsonplaceholder.typicode.com/posts/1");
+        requete.send();
+        requete.onload = function(){
+            console.log(JSON.parse(requete.responseText));
+            const userId = JSON.parse(requete.responseText).userId
+            const requeteUser = new XMLHttpRequest();
+            requeteUser.open("GET", "https://jsonplaceholder.typicode.com/users/"+userId);
+            requeteUser.send();
+            requeteUser.onload = function(){
+                console.log(JSON.parse(requeteUser.responseText)); // callback hell
+            }
+        }
+
+        function getArticle1(){
+            return new Promise( function(resolve, reject){
+                const requete = new XMLHttpRequest();
+                requete.open("GET","https://jsonplaceholder.typicode.com/posts/1" );
+                requete.send();
+                requete.onload = function(){
+                    const idUser = JSON.parse(requete.responseText).userId
+                    resolve(idUser);
+                }
+            } )
+        }
+        function getUser(idUser){
+            return new Promise( function(resolve, reject){
+                const requete = new XMLHttpRequest();
+                requete.open("GET","https://jsonplaceholder.typicode.com/users/"+idUser );
+                requete.send();
+                requete.onload = function(){
+                    resolve(JSON.parse(requete.responseText));
+                }
+            } )
+        }
+        // then () pour exécuter l'action asynchrone 
+        getArticle1().then( idUser => getUser(idUser))
+                     .then( user => console.log(user)); 
+        // syntaxe await async 
+        async function getUserRedacteurArticle1(){
+            const idUser = await getArticle1()
+            const user = await getUser(idUser)
+            console.log(user); 
+        }
+        getUserRedacteurArticle1()
+
+        
+
+
+
+
+    </script>
+</body>
+</html>
