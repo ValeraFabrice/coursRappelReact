@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            width: 900px;
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+        input{
+            padding: 5px 8px;
+            width: 50%;
+        }
+        section{
+            display: grid;
+            grid-template-columns: repeat(3, 1fr );
+            gap:20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Rechercher un cocktail</h1>
+            <input class="search" placeholder="rechercher un cocktail"> 
+        </header>
+        <hr>
+        <section></section>
+    </div>
+    <script>
+        // https://jsonplaceholder.typicode.com/posts/72
+        // https://api-allocine.herokuapp.com/api/movies/popular?p=2
+        // https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita
+        // $_GET["s"]
+        fetch("https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita")
+            .then(reponse => reponse.json())
+            .then(cocktails => document.querySelector("section").innerHTML = genererResultat(cocktails.drinks));
+
+        function genererResultat(resultats){
+            return resultats.map( cocktail => {
+                return `<article>
+                        <h2>${cocktail.strDrink}</h2>
+                        <img src="${cocktail.strDrinkThumb}" alt="" width="100%">
+                        <p>${cocktail.strInstructions}</p>
+                    </article>
+                    `
+            } ).join("")
+        }
+
+        /* document.querySelector(".search").addEventListener("input" , function(e){
+            fetch("https://www.thecocktaildb.com/api/json/v1/1/search.php?s="+e.target.value)
+            .then(reponse => reponse.json())
+            .then(cocktails => 
+                {   
+                    document.querySelector("section").innerHTML = "";
+                    document.querySelector("section").innerHTML = genererResultat(cocktails.drinks)
+                }
+                ); 
+        }) */
+
+        document.querySelector(".search").addEventListener("input" , async function(e){
+            const reponse = await fetch("https://www.thecocktaildb.com/api/json/v1/1/search.php?s="+e.target.value)
+            const cocktails = await reponse.json();
+            document.querySelector("section").innerHTML = "";
+            document.querySelector("section").innerHTML = genererResultat(cocktails.drinks) 
+        })
+
+
+    </script>
+</body>
+</html>
