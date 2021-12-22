@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function action1(){
+            return new Promise(function(resolve, reject){
+                setTimeout( function(){
+                    console.log("je suis action1");
+                    resolve("action 1");
+                } , 2000 )
+            })
+        }
+        function action2(){
+            return new Promise(function(resolve, reject){
+                setTimeout( function(){
+                    console.log("je suis action2");
+                    resolve("action 2");
+                } , 3000 )
+            })
+        }
+        // syntaxe then() catch() pour exécuter nos Promises 
+        action1().then( () => action2())
+                 .then(() => console.log("fin"))
+                 .catch(ex => console.log(ex))
+        // nouvelle syntaxe qui remplace le then et le catch 
+        // then => await 
+
+        // Uncaught SyntaxError: await is only valid in async functions, async generators and modules
+        async function fonctionAsync (){
+            try{
+                const reponse1 = await action1()
+                console.log(reponse1)
+                const reponse2 = await action2()
+                console.log(reponse2)
+                console.log("fin")
+            }
+            catch(ex){
+                console.log(ex)
+            }
+        }
+        fonctionAsync ()
+
+        
+    </script>
+</body>
+</html>

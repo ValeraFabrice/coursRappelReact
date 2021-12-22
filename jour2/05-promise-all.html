@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+            function action1(){
+                return new Promise(function(resolve, reject){
+                    setTimeout( function(){ 
+                        console.log("je suis l'action 1")
+                        if(1 < 2){
+                            resolve({id : 1 , nom : "Alain"})
+                        }else{
+                            reject("une erreur s'est produit lors de l'appel du profil user")
+                        }
+                    } , 2000)
+                })
+            }
+            function action2(){
+                return new Promise( function(resolve, reject){
+                    setTimeout( function(){ 
+                        console.log("je suis l'action 2")
+                        if(1 < 2){
+                            resolve({id : 1 , titre : "article 1"})
+                        }else{
+                            reject("requete 2 erreur")
+                        }
+                        
+                     } , 4000)
+                } )
+            }
+
+            Promise.all([action1() , action2()]).then( (resultat) => console.log(resultat) );
+            // resultat = [{id : 1 , nom : "Alain"} , {id : 1 , titre : "article 1"}]
+            
+            // sur la variable resultat => destructurer []
+            Promise.all([action1() , action2()]).then( ([profilUser, article]) => console.log(profilUser , article) );
+
+            Promise.any([action1() , action2()]).then( (resultat) => console.log(resultat) );
+
+            // dès qu'il y a une Promise qui est passée => les autres on s'en moque 
+
+            // await async 
+    </script>
+</body>
+</html>
