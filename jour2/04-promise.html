@@ -10,13 +10,21 @@
     <script>
         // utilisant les Promise 
 
-        function action1(){
+        action1().then( () => action2() )
+                 .then( () => action3() )
+                 .catch( ex => console.log(ex))
+
+        function action1 () {
             return new Promise(function( resolve, reject ){
                 console.log("bonjour"); // Promises 
                 setTimeout( 
                     function(){
-                        console.log("comment allez vous ?") ;
-                        resolve()
+                        if(1 > 2){
+                            console.log("comment allez vous ?") ;
+                            resolve()
+                        }else {
+                            reject("action 1 s'est arrête nette")
+                        }
                     },  2000 )
              })
         }
@@ -36,9 +44,8 @@
              })
         }
         
-        action1().then( () => action2() )
-                 .then( () => action3() )
-                 
+       
+
     </script>
 </body>
 </html>
